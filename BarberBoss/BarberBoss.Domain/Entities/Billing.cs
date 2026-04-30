@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BarberBoss.Communication.Enums;
+using BarberBoss.Domain.Enums;
 
-namespace BarberBoss.Communication.Requests;
-public class RequestBillingsJson
+namespace BarberBoss.Domain.Entities;
+public class Billing
 {
+    public long Id { get; set; }
     public DateOnly Date { get; set; }
     public string BarberName { get; set; } = string.Empty;
     public string ClientName { get; set; } = string.Empty;

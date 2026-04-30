@@ -12,8 +12,7 @@ public class BillingsController : ControllerBase
     [ProducesResponseType(typeof(ResponseRegisteredBillingsJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Register([FromServices] IRegisterBillingsUseCase useCase, [FromBody] RequestBillingsJson request)
-    {
-        // TODO: criar toda a questao de injeção dependencia, banco de dados e etc
+    {        
         var response = await useCase.Execute(request);
 
         return Created(string.Empty, response);
