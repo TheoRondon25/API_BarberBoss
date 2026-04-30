@@ -3,7 +3,7 @@ using BarberBoss.Domain.Repositories.Billings;
 using BarberBoss.Domain.Entities;
 
 namespace BarberBoss.Infrastructure.DataAccess.Repositories;
-public class BillingsRepository : IBillingsWriteOnlyRepository
+internal class BillingsRepository : IBillingsWriteOnlyRepository
 {
     private readonly BarberBossDbContext _dbContext;
 
