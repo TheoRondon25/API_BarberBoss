@@ -3,7 +3,7 @@ using BarberBoss.Domain.Repositories.Billings;
 using BarberBoss.Domain.Entities;
 
 namespace BarberBoss.Infrastructure.DataAccess.Repositories;
-internal class BillingsRepository : IBillingsWriteOnlyRepository
+internal class BillingsRepository : IBillingsWriteOnlyRepository, IBillingsReadOnlyRepository //, IBillingsUpdateOnlyRepository
 {
     private readonly BarberBossDbContext _dbContext;
 
@@ -29,5 +29,10 @@ internal class BillingsRepository : IBillingsWriteOnlyRepository
         _dbContext.Billings.Remove(result);
 
         return true;
+    }
+
+    public async Task<List<Billing>> GetAll()
+    {
+        return await _dbContext.Billings.AsNoTracking().ToListAsync();
     }
 }
