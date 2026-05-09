@@ -76,8 +76,11 @@ internal class BillingsRepository : IBillingsWriteOnlyRepository, IBillingsReadO
             .Take(filters.PageSize)
             .ToListAsync();
 
-        return (billings, totalCount);
-
-        //return await _dbContext.Billings.AsNoTracking().ToListAsync();
+        return (billings, totalCount);        
     }
+
+    async Task<Billing?> IBillingsReadOnlyRepository.GetById(long id)
+    {
+        return await _dbContext.Billings.AsNoTracking().FirstOrDefaultAsync(billing => billing.Id == id);
+    }    
 }
