@@ -5,6 +5,7 @@ using BarberBoss.Application.UseCases.Billings.Register;
 using BarberBoss.Application.UseCases.Billings.GetAll;
 using BarberBoss.Application.UseCases.Billings.GetById;
 using BarberBoss.Application.UseCases.Billings.Update;
+using BarberBoss.Application.UseCases.Billings.Delete;
 
 namespace BarberBoss.Api.Controllers;
 [Route("api/[controller]")]
@@ -55,5 +56,16 @@ public class BillingsController : ControllerBase
         var response = await useCase.Execute(id, request);
 
         return Ok(response);
+    }
+
+    [HttpDelete]
+    [Route("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]    
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete([FromServices] IDeleteBillingsUseCase useCase, [FromRoute] long id)
+    {
+        await useCase.Execute(id);
+
+        return NoContent();
     }
 }

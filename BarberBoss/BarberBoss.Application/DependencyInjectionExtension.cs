@@ -1,4 +1,5 @@
 ﻿using BarberBoss.Application.AutoMapper;
+using BarberBoss.Application.UseCases.Billings.Delete;
 using BarberBoss.Application.UseCases.Billings.GetAll;
 using BarberBoss.Application.UseCases.Billings.GetById;
 using BarberBoss.Application.UseCases.Billings.Register;
@@ -26,6 +27,7 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterBillingsUseCase, RegisterBillingsUseCase>();
         services.AddScoped<IGetAllBillingsUseCase, GetAllBillingsUseCase>();
         services.AddScoped<IGetBillingsByIdUseCase, GetBillingsByIdUseCase>();
-        services.AddScoped<IUpdateBillingsUseCase, UpdateBillingsUseCase>();
+        services.AddScoped<IUpdateBillingsUseCase, UpdateBillingsUseCase>();        
+        services.AddScoped<IDeleteBillingsUseCase, DeleteBillingsUseCase>();        
     }
 }
