@@ -11,5 +11,5 @@ internal class BarberBossDbContext : DbContext
 {
     public BarberBossDbContext(DbContextOptions options) : base(options) { }
 
-    public DbSet<Billing> Billings { get; set; } // nome da tabela do banco sempre
+    public DbSet<Billing> Billings { get; set; } // nome da tabela do banco sempre    
 }

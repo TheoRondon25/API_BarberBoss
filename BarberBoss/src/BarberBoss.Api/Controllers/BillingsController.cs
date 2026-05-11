@@ -4,6 +4,7 @@ using BarberBoss.Communication.Requests;
 using BarberBoss.Application.UseCases.Billings.Register;
 using BarberBoss.Application.UseCases.Billings.GetAll;
 using BarberBoss.Application.UseCases.Billings.GetById;
+using BarberBoss.Application.UseCases.Billings.Update;
 
 namespace BarberBoss.Api.Controllers;
 [Route("api/[controller]")]
@@ -42,5 +43,17 @@ public class BillingsController : ControllerBase
         var response = await useCase.Execute(id);
         
         return Ok(response);        
+    }
+
+    [HttpPut]
+    [Route("{id}")]
+    [ProducesResponseType(typeof(ResponseShortBillingsJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Update([FromServices] IUpdateBillingsUseCase useCase, [FromRoute] long id, [FromBody] RequestBillingsJson request)
+    {
+        var response = await useCase.Execute(id, request);
+
+        return Ok(response);
     }
 }

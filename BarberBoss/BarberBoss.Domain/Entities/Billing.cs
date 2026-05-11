@@ -19,5 +19,5 @@ public class Billing
     public Status Status { get; set; }
     public string? Notes { get; set; }
     public DateTime CreatedAt { get; set; }
-    public DateTime UpdatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
 }

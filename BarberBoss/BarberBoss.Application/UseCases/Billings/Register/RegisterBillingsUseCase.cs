@@ -26,6 +26,9 @@ public class RegisterBillingsUseCase : IRegisterBillingsUseCase
 
         var entity = _mapper.Map<Billing>(request);
 
+        entity.CreatedAt = DateTime.UtcNow;
+        entity.UpdatedAt = null;
+
         await _repository.Add(entity);
 
         await _unitOfWork.Commit();
