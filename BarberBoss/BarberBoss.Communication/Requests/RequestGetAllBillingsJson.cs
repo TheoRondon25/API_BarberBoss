@@ -16,8 +16,8 @@ public class RequestGetAllBillingsJson
     public string? ServiceName { get; set; }
     public decimal? MinAmount { get; set; }
     public decimal? MaxAmount { get; set; }
-    public DateOnly? StartDate { get; set; }
-    public DateOnly? EndDate { get; set; }
+    public DateTime? StartDate { get; set; }
+    public DateTime? EndDate { get; set; }
 
     public string OrderBy { get; set; } = "Date";
     public bool Descending { get; set; } = true;

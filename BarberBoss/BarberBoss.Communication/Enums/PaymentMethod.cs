@@ -1,8 +1,8 @@
 ﻿namespace BarberBoss.Communication.Enums;
 public enum PaymentMethod
 {
-    Cartão = 0,
-    Dinheiro = 1,
-    Pix = 2,
-    Outro = 3
+    Cash = 0,
+    CreditCard = 1,
+    DebitCard = 2,
+    EletronicTransfer = 3
 }

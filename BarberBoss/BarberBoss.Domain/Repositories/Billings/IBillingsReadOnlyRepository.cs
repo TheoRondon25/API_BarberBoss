@@ -6,5 +6,5 @@ public interface IBillingsReadOnlyRepository
 {
     Task<(List<Billing> billings, int totalCount)> GetAll(BillingsFilters filters);
     Task<Billing?> GetById(long id);
-    //Task<List<Billing>> FilterByMonth(DateOnly month);
+    Task<List<Billing>> FilterByMonth(DateOnly month);
 }

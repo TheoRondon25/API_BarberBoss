@@ -2,6 +2,7 @@
 using BarberBoss.Domain.Repositories.Billings;
 using BarberBoss.Domain.Entities;
 using BarberBoss.Domain.Billings;
+using System.Data;
 
 namespace BarberBoss.Infrastructure.DataAccess.Repositories;
 internal class BillingsRepository : IBillingsWriteOnlyRepository, IBillingsReadOnlyRepository, IBillingsUpdateOnlyRepository
@@ -92,5 +93,21 @@ internal class BillingsRepository : IBillingsWriteOnlyRepository, IBillingsReadO
 
         _dbContext.Billings.Remove(result);
         return true;
+    }
+
+    public async Task<List<Billing>> FilterByMonth(DateOnly date)
+    {
+        var startDate = new DateTime(year: date.Year, month: date.Month, day: 1).Date;
+
+        var daysInMonth = DateTime.DaysInMonth(year: date.Year, month: date.Month);
+        var endDate = new DateTime(year: date.Year, month: date.Month, day: daysInMonth, hour: 23, minute: 59, second: 59);
+
+        return await _dbContext
+            .Billings
+            .AsNoTracking()
+            .Where(billing => billing.Date >= startDate && billing.Date <= endDate)
+            .OrderBy(billing => billing.Date)
+            .ThenBy(billing => billing.ServiceName)
+            .ToListAsync();
     }
 }
