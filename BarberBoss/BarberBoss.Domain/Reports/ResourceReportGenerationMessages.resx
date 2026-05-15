@@ -120,6 +120,9 @@
   <data name="AMOUNT" xml:space="preserve">
     <value>Amount</value>
   </data>
+  <data name="BILLINGS_TO" xml:space="preserve">
+    <value>Billings to</value>
+  </data>
   <data name="DATE" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="TITLE" xml:space="preserve">
     <value>Title</value>
+  </data>
+  <data name="TOTAL_BILLING_IN" xml:space="preserve">
+    <value>Total billing for the week of the {0}</value>
   </data>
 </root>

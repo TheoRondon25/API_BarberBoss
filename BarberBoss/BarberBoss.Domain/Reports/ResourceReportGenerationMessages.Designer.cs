@@ -70,6 +70,15 @@ namespace BarberBoss.Domain.Reports {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Billings to.
+        /// </summary>
+        public static string BILLINGS_TO {
+            get {
+                return ResourceManager.GetString("BILLINGS_TO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Date.
         /// </summary>
         public static string DATE {
@@ -102,6 +111,15 @@ namespace BarberBoss.Domain.Reports {
         public static string TITLE {
             get {
                 return ResourceManager.GetString("TITLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total billing for the week of the {0}.
+        /// </summary>
+        public static string TOTAL_BILLING_IN {
+            get {
+                return ResourceManager.GetString("TOTAL_BILLING_IN", resourceCulture);
             }
         }
     }

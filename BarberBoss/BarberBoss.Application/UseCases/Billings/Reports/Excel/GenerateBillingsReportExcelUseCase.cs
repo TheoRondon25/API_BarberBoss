@@ -13,14 +13,18 @@ public class GenerateBillingsReportExcelUseCase : IGenerateBillingsReportExcelUs
         _repository = repository;
     }
 
-    public async Task<byte[]> Execute(DateOnly month)
+    public async Task<byte[]> Execute(DateOnly date)
     {
-        var billings = await _repository.FilterByMonth(month);
+        var billings = await _repository.FilterByWeek(date);
 
         if(billings.Count == 0)
         {
             return [];
         }
+
+        var startOfWeek = date.AddDays(-(int)date.DayOfWeek);
+        var endOfWeek = startOfWeek.AddDays(6);
+        var weekLabel = $"{startOfWeek:dd/MM} - {endOfWeek:dd/MM/yyyy}";
 
         using var workbook = new XLWorkbook();
 
@@ -28,7 +32,7 @@ public class GenerateBillingsReportExcelUseCase : IGenerateBillingsReportExcelUs
         workbook.Style.Font.FontSize = 10;
         workbook.Style.Font.FontName = "Arial";
 
-        var worksheet = workbook.Worksheets.Add(month.ToString("Y"));
+        var worksheet = workbook.Worksheets.Add(weekLabel);
 
         InsertHeader(worksheet);
 

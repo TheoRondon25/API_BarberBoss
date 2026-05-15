@@ -95,12 +95,11 @@ internal class BillingsRepository : IBillingsWriteOnlyRepository, IBillingsReadO
         return true;
     }
 
-    public async Task<List<Billing>> FilterByMonth(DateOnly date)
+    public async Task<List<Billing>> FilterByWeek(DateOnly date)
     {
-        var startDate = new DateTime(year: date.Year, month: date.Month, day: 1).Date;
-
-        var daysInMonth = DateTime.DaysInMonth(year: date.Year, month: date.Month);
-        var endDate = new DateTime(year: date.Year, month: date.Month, day: daysInMonth, hour: 23, minute: 59, second: 59);
+        var dayOfWeek = (int)date.DayOfWeek; // 0 = Sunday, 6 = Saturday
+        var startDate = date.AddDays(-dayOfWeek).ToDateTime(TimeOnly.MinValue);
+        var endDate = date.AddDays(6 - dayOfWeek).ToDateTime(new TimeOnly(23, 59, 59));
 
         return await _dbContext
             .Billings

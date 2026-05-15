@@ -20,4 +20,10 @@
     <ProjectReference Include="..\BarberBoss.Exception\BarberBoss.Exception.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+	<EmbeddedResource Include="UseCases\Billings\Reports\Pdf\Fonts\BebasNeue-Regular.ttf" />
+	<EmbeddedResource Include="UseCases\Billings\Reports\Pdf\Fonts\Roboto-Variable.ttf" />
+	<EmbeddedResource Include="UseCases\Billings\Reports\Pdf\Fonts\Roboto-Italic-Variable.ttf" />
+  </ItemGroup>
+
 </Project>

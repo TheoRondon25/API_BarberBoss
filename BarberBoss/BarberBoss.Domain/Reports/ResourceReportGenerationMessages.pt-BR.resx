@@ -120,6 +120,9 @@
   <data name="AMOUNT" xml:space="preserve">
     <value>Valor</value>
   </data>
+  <data name="BILLINGS_TO" xml:space="preserve">
+    <value>Faturamentos de</value>
+  </data>
   <data name="DATE" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="TITLE" xml:space="preserve">
     <value>Título</value>
+  </data>
+  <data name="TOTAL_BILLING_IN" xml:space="preserve">
+    <value>Faturamento total na semana do dia {0}</value>
   </data>
 </root>
