@@ -13,16 +13,16 @@ public class GenerateBillingsReportExcelUseCase : IGenerateBillingsReportExcelUs
         _repository = repository;
     }
 
-    public async Task<byte[]> Execute(DateOnly date)
+    public async Task<byte[]> Execute(DateOnly dateExcel)
     {
-        var billings = await _repository.FilterByWeek(date);
+        var billings = await _repository.FilterByWeek(dateExcel);
 
         if(billings.Count == 0)
         {
             return [];
         }
 
-        var startOfWeek = date.AddDays(-(int)date.DayOfWeek);
+        var startOfWeek = dateExcel.AddDays(-(int)dateExcel.DayOfWeek);
         var endOfWeek = startOfWeek.AddDays(6);
         var weekLabel = $"{startOfWeek:dd/MM} - {endOfWeek:dd/MM/yyyy}";
 

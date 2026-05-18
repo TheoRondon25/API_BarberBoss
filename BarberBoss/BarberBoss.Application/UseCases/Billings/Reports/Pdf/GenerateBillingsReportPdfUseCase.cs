@@ -23,21 +23,21 @@ public class GenerateBillingsReportPdfUseCase : IGenerateBillingsReportPdfUseCas
         GlobalFontSettings.FontResolver = new BillingsReportFontResolver();
     }
 
-    public async Task<byte[]> Execute(DateOnly date)
+    public async Task<byte[]> Execute(DateOnly datePdf)
     {
-        var billings = await _repository.FilterByWeek(date);
+        var billings = await _repository.FilterByWeek(datePdf);
         if (billings.Count == 0)
         {
             return [];
         }
 
-        var document = CreateDocument(date);
+        var document = CreateDocument(datePdf);
         var page = CreatePage(document);
 
         CreateHeaderWithLogoAndName(page);
 
         var totalBillings = billings.Sum(billing => billing.Amount);
-        CreateTotalBillingSection(page, date, totalBillings);
+        CreateTotalBillingSection(page, datePdf, totalBillings);
 
         foreach(var billing in billings)
         {
