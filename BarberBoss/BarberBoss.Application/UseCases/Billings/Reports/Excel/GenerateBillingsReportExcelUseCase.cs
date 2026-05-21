@@ -24,7 +24,7 @@ public class GenerateBillingsReportExcelUseCase : IGenerateBillingsReportExcelUs
 
         var startOfWeek = dateExcel.AddDays(-(int)dateExcel.DayOfWeek);
         var endOfWeek = startOfWeek.AddDays(6);
-        var weekLabel = $"{startOfWeek:dd/MM} - {endOfWeek:dd/MM/yyyy}";
+        var weekLabel = $"{startOfWeek:dd-MM} - {endOfWeek:dd-MM-yyyy}";
 
         using var workbook = new XLWorkbook();
 

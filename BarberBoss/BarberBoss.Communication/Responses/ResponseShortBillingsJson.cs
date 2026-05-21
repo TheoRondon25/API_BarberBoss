@@ -9,7 +9,7 @@ namespace BarberBoss.Communication.Responses;
 public class ResponseShortBillingsJson
 {
     public long Id { get; set; }
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
     public string BarberName { get; set; } = string.Empty;
     public string ClientName { get; set; } = string.Empty;
     public string ServiceName { get; set; } = string.Empty;

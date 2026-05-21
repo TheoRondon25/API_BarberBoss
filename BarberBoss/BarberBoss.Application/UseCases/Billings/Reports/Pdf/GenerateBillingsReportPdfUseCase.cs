@@ -1,11 +1,13 @@
 ﻿using System.Reflection;
 using BarberBoss.Application.UseCases.Billings.Reports.Pdf.Colors;
 using BarberBoss.Application.UseCases.Billings.Reports.Pdf.Fonts;
+using BarberBoss.Domain.Extensions;
 using BarberBoss.Domain.Reports;
 using BarberBoss.Domain.Repositories.Billings;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.DocumentObjectModel.Tables;
 using MigraDoc.Rendering;
+using PdfSharp.Drawing;
 using PdfSharp.Fonts;
 
 namespace BarberBoss.Application.UseCases.Billings.Reports.Pdf;
@@ -49,7 +51,37 @@ public class GenerateBillingsReportPdfUseCase : IGenerateBillingsReportPdfUseCas
             AddBillingTitle(row.Cells[0], billing.ServiceName);
             AddHeaderForAmount(row.Cells[3]);
 
-            // finalizar a montagem do arquivo pdf 
+            row = table.AddRow();
+            row.Height = HEIGHT_ROW_BILLING_TABLE;
+
+            row.Cells[0].AddParagraph(billing.Date.ToString("D"));
+            SetStyleBaseForBillingInformation(row.Cells[0]);
+            row.Cells[0].Format.LeftIndent = 10;
+
+            row.Cells[1].AddParagraph(billing.Date.ToString("t"));
+            SetStyleBaseForBillingInformation(row.Cells[1]);
+
+            row.Cells[2].AddParagraph(billing.PaymentMethod.PaymentMethodToString());
+            SetStyleBaseForBillingInformation(row.Cells[2]);
+
+            AddAmountForBilling(row.Cells[3], billing.Amount);
+
+            if (string.IsNullOrWhiteSpace(billing.Notes) == false)
+            {
+                var descriptionRow = table.AddRow();
+                descriptionRow.Height = HEIGHT_ROW_BILLING_TABLE;
+
+                descriptionRow.Cells[0].AddParagraph(billing.Notes);
+                descriptionRow.Cells[0].Format.Font = new Font { Name = FontHelper.ROBOTO_VARIABLE, Size = 9, Color = ColorsHelper.BLACK };
+                descriptionRow.Cells[0].Shading.Color = ColorsHelper.GRAY_LIGHT;
+                descriptionRow.Cells[0].VerticalAlignment = VerticalAlignment.Center;
+                descriptionRow.Cells[0].MergeRight = 2;
+                descriptionRow.Cells[0].Format.LeftIndent = 10;
+
+                row.Cells[3].MergeDown = 1;
+            }
+
+            AddWhiteSpace(table);
         }
 
         return RenderDocument(document);
@@ -149,6 +181,28 @@ public class GenerateBillingsReportPdfUseCase : IGenerateBillingsReportPdfUseCas
         cell.Format.Font = new Font { Name = FontHelper.BEBAS_NEUE_REGULAR, Size = 14, Color = ColorsHelper.WHITE };
         cell.Shading.Color = ColorsHelper.ACQUA_DARK;
         cell.VerticalAlignment = VerticalAlignment.Center;
+    }
+
+    private void SetStyleBaseForBillingInformation(Cell cell)
+    {
+        cell.Format.Font = new Font { Name = FontHelper.ROBOTO_VARIABLE, Size = 10, Color = ColorsHelper.BLACK };
+        cell.Shading.Color = ColorsHelper.GRAY;
+        cell.VerticalAlignment = VerticalAlignment.Center;        
+    }
+
+    private void AddAmountForBilling(Cell cell, decimal amount)
+    {
+        cell.AddParagraph($"{CURRENCY_SYMBOL} {amount}");
+        cell.Format.Font = new Font { Name = FontHelper.ROBOTO_VARIABLE, Size = 10, Color = ColorsHelper.BLACK };
+        cell.Shading.Color = ColorsHelper.WHITE;
+        cell.VerticalAlignment = VerticalAlignment.Center;        
+    }
+
+    private void AddWhiteSpace(Table table)
+    {
+        var row = table.AddRow();
+        row.Height = 30;
+        row.Borders.Visible = false;
     }
 
     private byte[] RenderDocument(Document document)
