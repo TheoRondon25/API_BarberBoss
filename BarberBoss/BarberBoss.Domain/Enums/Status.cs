@@ -8,5 +8,6 @@ namespace BarberBoss.Domain.Enums;
 public enum Status
 {
     Pago = 0,
-    Cancelado = 1
+    Cancelado = 1,
+    Pendente = 2
 }

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Exception", "Bar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Infrastructure", "BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj", "{669310E0-9C47-4114-8B24-E7BC00BE19B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingsValidators.Tests", "tests\BillingsValidators.Tests\BillingsValidators.Tests.csproj", "{2567AD83-FD7C-4372-B8A2-31254A75CDA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{669310E0-9C47-4114-8B24-E7BC00BE19B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{669310E0-9C47-4114-8B24-E7BC00BE19B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{669310E0-9C47-4114-8B24-E7BC00BE19B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2567AD83-FD7C-4372-B8A2-31254A75CDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2567AD83-FD7C-4372-B8A2-31254A75CDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2567AD83-FD7C-4372-B8A2-31254A75CDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2567AD83-FD7C-4372-B8A2-31254A75CDA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 		{A36AA3FA-2E3E-417A-929D-DFC22A07B6D5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{1DF26166-DF4B-4397-92A6-8BB622DF78ED} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{669310E0-9C47-4114-8B24-E7BC00BE19B6} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2567AD83-FD7C-4372-B8A2-31254A75CDA6} = {5E0105B0-5A9E-44B8-A87F-09675AA05A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {88206A8B-DFEF-49D0-8EB3-A7B30E164F72}
