@@ -10,6 +10,9 @@
 # dotenv files
 .env
 
+# removendo imagem de arquitura
+/BarberBoss/assets/ArquiteturaBarberBoss.png
+
 # User-specific files
 *.rsuser
 *.suo
