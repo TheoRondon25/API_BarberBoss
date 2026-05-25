@@ -9,15 +9,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5E0105B0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Api", "src\BarberBoss.Api\BarberBoss.Api.csproj", "{4D4D3DDB-4421-49D2-9CD5-7B5BF5CACFB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Application", "BarberBoss.Application\BarberBoss.Application.csproj", "{C301D9FC-5EDC-470C-A99D-7744A7EB6864}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Application", "src\BarberBoss.Application\BarberBoss.Application.csproj", "{C301D9FC-5EDC-470C-A99D-7744A7EB6864}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Communication", "BarberBoss.Communication\BarberBoss.Communication.csproj", "{3CE8E993-CB84-47F2-A575-E3DCEDA8EBC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Communication", "src\BarberBoss.Communication\BarberBoss.Communication.csproj", "{3CE8E993-CB84-47F2-A575-E3DCEDA8EBC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Domain", "BarberBoss.Domain\BarberBoss.Domain.csproj", "{A36AA3FA-2E3E-417A-929D-DFC22A07B6D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Domain", "src\BarberBoss.Domain\BarberBoss.Domain.csproj", "{A36AA3FA-2E3E-417A-929D-DFC22A07B6D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Exception", "BarberBoss.Exception\BarberBoss.Exception.csproj", "{1DF26166-DF4B-4397-92A6-8BB622DF78ED}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Exception", "src\BarberBoss.Exception\BarberBoss.Exception.csproj", "{1DF26166-DF4B-4397-92A6-8BB622DF78ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Infrastructure", "BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj", "{669310E0-9C47-4114-8B24-E7BC00BE19B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarberBoss.Infrastructure", "src\BarberBoss.Infrastructure\BarberBoss.Infrastructure.csproj", "{669310E0-9C47-4114-8B24-E7BC00BE19B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BillingsValidators.Tests", "tests\BillingsValidators.Tests\BillingsValidators.Tests.csproj", "{2567AD83-FD7C-4372-B8A2-31254A75CDA6}"
 EndProject
